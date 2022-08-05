@@ -41,3 +41,10 @@ function combined() {
 
 const button = document.getElementById('btn')
 button.addEventListener('click', combined)
+
+
+function end() {
+    console.clear()
+}
+const lbutton = document.getElementById('lbtn')
+lbutton.addEventListener('click', end)
