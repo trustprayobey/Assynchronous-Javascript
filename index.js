@@ -162,15 +162,25 @@ function createPost(post) {
         }, 3000)
     })
 }
-//Async await function is this here
+// //Async await function is this here
 
-async function init() {
-    await createPost({ title: 'my new post three', body: 'I used async' })
+// async function init() {
+//     await createPost({ title: 'my new post three', body: 'I used async' })
 
-    getPosts() //More elegant way to handle promises
+//     getPosts() //More elegant way to handle promises
+// }
+
+// init()
+
+//     .catch(err => console.log(err))///Looks cooler on the console
+
+//Async await using fetch
+
+async function fetchUsers() {
+    const res = await fetch
+        ('https://jsonplaceholder.typicode.com/users')
+    const data = await res.json()
+    console.log(data) //This did not work for me
 }
-
-init()
-
-    .catch(err => console.log(err))///Looks cooler on the console
+fetchUsers()
 
