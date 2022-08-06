@@ -69,5 +69,13 @@ function getPosts() {
     }, 1000)
 }
 
-getPosts()
+function createPost(post, callBack) {
+    setTimeout(() => {
+        posts.push(post)
+        callBack()     ///By using a call back
+    }, 3000)
+}
+
+
+createPost({ title: 'my new post three', body: 'I used async' }, getPosts)
 
