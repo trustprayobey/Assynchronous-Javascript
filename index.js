@@ -102,19 +102,15 @@ function createPost(post) {
         setTimeout(() => {
             posts.push(post)
 
-            const error = false
+            const error = false   ///Async js promises
 
             if (!error) {
                 resolve()
             } else {
-                reject('There is an error')
+                reject('Kuna error Msee')
             }
         }, 3000)
     })
-
-
 }
-
-
 createPost({ title: 'my new post three', body: 'I used async' })
     .then(getPosts)
