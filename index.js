@@ -50,8 +50,36 @@
 // lbutton.addEventListener('click', end)
 
 
-//Assync js Callbacks
+// //Assync js Callbacks
 
+
+// let posts = [
+//     { title: 'Post one', body: 'My post one' },
+//     { title: 'Post two', body: 'My post two' }
+// ]
+
+
+// function getPosts() {
+//     setTimeout(() => {
+//         let output = ''
+//         posts.forEach((post) => {
+//             output += `<li>${post.title}</li>`
+//         })
+//         document.body.innerHTML = output
+//     }, 1000)
+// }
+
+// function createPost(post, callBack) {
+//     setTimeout(() => {
+//         posts.push(post)
+//         callBack()     ///By using a call back
+//     }, 3000)
+// }
+
+
+// createPost({ title: 'my new post three', body: 'I used async' }, getPosts)
+
+//Async js Promises
 
 let posts = [
     { title: 'Post one', body: 'My post one' },
@@ -69,13 +97,24 @@ function getPosts() {
     }, 1000)
 }
 
-function createPost(post, callBack) {
-    setTimeout(() => {
-        posts.push(post)
-        callBack()     ///By using a call back
-    }, 3000)
+function createPost(post) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            posts.push(post)
+
+            const error = false
+
+            if (!error) {
+                resolve()
+            } else {
+                reject('There is an error')
+            }
+        }, 3000)
+    })
+
+
 }
 
 
-createPost({ title: 'my new post three', body: 'I used async' }, getPosts)
-
+createPost({ title: 'my new post three', body: 'I used async' })
+    .then(getPosts)
